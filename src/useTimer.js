@@ -21,9 +21,9 @@ export default function useTimer({ expiryTimestamp: expiry, onExpire, autoStart 
   const [delay, setDelay] = useState(getDelayFromExpiryTimestamp(expiryTimestamp));
 
   function handleExpire() {
-    Validate.onExpire(onExpire) && onExpire();
     setIsRunning(false);
     setDelay(null);
+    Validate.onExpire(onExpire) && onExpire();
   }
 
   function pause() {
